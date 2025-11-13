@@ -1,0 +1,5 @@
+{
+  "name": "Painel de Controle SaaS",
+  "description": "Uma interface de painel moderna, alimentada por IA, para uma aplicação SaaS. Visualize métricas chave, gerencie usuários e gere insights de negócios com a API Gemini.",
+  "requestFramePermissions": []
+}
