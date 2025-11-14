@@ -4,21 +4,28 @@ import { AccountStep } from './steps/AccountStep';
 import { PlanStep } from './steps/PlanStep';
 import { SuccessStep } from './steps/SuccessStep';
 
+interface FormData {
+    fullName: string;
+    companyName: string;
+    email: string;
+    password: string;
+}
+
 interface RegisterProps {
-    onRegisterSuccess: () => void;
+    onRegisterSuccess: (data: FormData) => void;
     onNavigateToLogin: () => void;
 }
 
 export const Register: React.FC<RegisterProps> = ({ onRegisterSuccess, onNavigateToLogin }) => {
     const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         fullName: '',
         companyName: '',
         email: '',
         password: '',
     });
 
-    const handleAccountSubmit = (data: typeof formData) => {
+    const handleAccountSubmit = (data: FormData) => {
         setFormData(data);
         setStep(2);
     };
@@ -28,6 +35,10 @@ export const Register: React.FC<RegisterProps> = ({ onRegisterSuccess, onNavigat
         console.log("Registration data:", formData);
         setStep(3);
     };
+    
+    const handleSuccessAndNavigate = () => {
+        onRegisterSuccess(formData);
+    }
 
 
     const renderStep = () => {
@@ -37,7 +48,7 @@ export const Register: React.FC<RegisterProps> = ({ onRegisterSuccess, onNavigat
             case 2:
                 return <PlanStep onBack={() => setStep(1)} onComplete={handlePlanSubmit} />;
             case 3:
-                return <SuccessStep onComplete={onRegisterSuccess} />;
+                return <SuccessStep onComplete={handleSuccessAndNavigate} />;
             default:
                 return <AccountStep onNext={handleAccountSubmit} onNavigateToLogin={onNavigateToLogin} />;
         }

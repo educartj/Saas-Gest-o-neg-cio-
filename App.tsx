@@ -13,6 +13,11 @@ import { initialUsers } from './data/mockUsers';
 
 type ViewState = 'login' | 'register' | 'dashboard';
 
+interface NewRegisteredUser {
+    fullName: string;
+    email: string;
+}
+
 const App: React.FC = () => {
   const [viewState, setViewState] = useState<ViewState>('login');
   const [activePage, setActivePage] = useState<Page>(Page.DASHBOARD);
@@ -28,13 +33,20 @@ const App: React.FC = () => {
     setActivePage(Page.DASHBOARD);
   };
   
-  const handleRegisterSuccess = () => {
+  const handleRegisterSuccess = (newUserData: NewRegisteredUser) => {
+    const newUser: Omit<User, 'id' | 'avatar' | 'lastLogin'> = {
+        name: newUserData.fullName,
+        email: newUserData.email,
+        role: 'Administrador', // Assume o primeiro usuário é um administrador
+        status: 'Ativo',
+    };
+    handleAddUser(newUser);
     setViewState('dashboard');
   }
 
   const handleAddUser = (newUser: Omit<User, 'id' | 'avatar' | 'lastLogin'>) => {
     setUsers(prevUsers => {
-        const newId = Math.max(...prevUsers.map(u => u.id)) + 1;
+        const newId = prevUsers.length > 0 ? Math.max(...prevUsers.map(u => u.id)) + 1 : 1;
         const userToAdd: User = {
             ...newUser,
             id: newId,
