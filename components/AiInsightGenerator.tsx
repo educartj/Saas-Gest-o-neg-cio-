@@ -43,7 +43,7 @@ export const AiInsightGenerator: React.FC<AiInsightGeneratorProps> = ({ sampleDa
             <textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                className="w-full h-24 p-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-primary focus:border-primary"
+                className="w-full h-24 p-2 bg-gray-600 border border-gray-500 rounded-md text-white focus:ring-primary focus:border-primary"
                 placeholder="ex: Existem tendências nas inscrições de usuários?"
                 disabled={isLoading}
             />

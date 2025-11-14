@@ -41,15 +41,15 @@ export const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onSubmit,
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-400">Nome Completo</label>
-                        <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary" />
+                        <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full bg-gray-600 border-gray-500 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary" />
                     </div>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-400">Endereço de E-mail</label>
-                        <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary" />
+                        <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full bg-gray-600 border-gray-500 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary" />
                     </div>
                     <div>
                         <label htmlFor="role" className="block text-sm font-medium text-gray-400">Função</label>
-                        <select name="role" id="role" value={formData.role} onChange={handleChange} className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary">
+                        <select name="role" id="role" value={formData.role} onChange={handleChange} className="mt-1 block w-full bg-gray-600 border-gray-500 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary">
                             <option>Administrador</option>
                             <option>Editor</option>
                             <option>Visualizador</option>
@@ -57,7 +57,7 @@ export const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onSubmit,
                     </div>
                      <div>
                         <label htmlFor="status" className="block text-sm font-medium text-gray-400">Status</label>
-                        <select name="status" id="status" value={formData.status} onChange={handleChange} className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary">
+                        <select name="status" id="status" value={formData.status} onChange={handleChange} className="mt-1 block w-full bg-gray-600 border-gray-500 rounded-md shadow-sm text-white focus:ring-primary focus:border-primary">
                             <option>Ativo</option>
                             <option>Inativo</option>
                         </select>

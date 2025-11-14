@@ -25,7 +25,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin, onNavigateToRegister }) =
                     <p className="mt-2 text-gray-400">Faça login para acessar seu painel</p>
                 </div>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    <div className="rounded-md shadow-sm -space-y-px">
+                    <div className="space-y-4">
                         <div>
                             <label htmlFor="email-address" className="sr-only">Endereço de E-mail</label>
                             <input
@@ -36,7 +36,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin, onNavigateToRegister }) =
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm rounded-t-md"
+                                className="appearance-none relative block w-full px-3 py-3 border border-gray-500 bg-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
                                 placeholder="Endereço de E-mail"
                             />
                         </div>
@@ -50,7 +50,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin, onNavigateToRegister }) =
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm rounded-b-md"
+                                className="appearance-none relative block w-full px-3 py-3 border border-gray-500 bg-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
                                 placeholder="Senha"
                             />
                         </div>
