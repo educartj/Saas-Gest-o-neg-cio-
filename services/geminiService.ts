@@ -1,18 +1,14 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Assume process.env.API_KEY is configured in the environment
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  console.warn("Chave da API Gemini não encontrada. Por favor, configure a variável de ambiente API_KEY.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
-
 export async function generateInsight(prompt: string, data: object): Promise<string> {
+    const API_KEY = process.env.API_KEY;
+
     if (!API_KEY) {
-        return Promise.reject(new Error("A Chave de API para o Gemini não está configurada. O recurso de IA está desativado."));
+        console.warn("Chave da API Gemini não encontrada. Por favor, configure a variável de ambiente API_KEY.");
+        throw new Error("A Chave de API para o Gemini não está configurada. O recurso de IA está desativado.");
     }
+
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
 
     const model = 'gemini-2.5-flash';
     
